@@ -1,0 +1,56 @@
+<?php
+
+	session_start();
+	if (!$_SESSION["valid_user"])
+	{
+		echo '<a class = "log" href="login.php">Login</a><a class = "log" href="register.php">register</a>';
+	}
+	else
+	{
+		echo '<a class = "log" href="logout.php">Logout</a>';
+		if ( $_SESSION["status"]=="owner" )
+		{	
+			echo '<a class = "log" href="userdetails.php">Developer</a>';
+			echo '<a class = "log" href="admin.php">Admin</a>';
+		}
+		else if($_SESSION["status"]=="dev" )
+		{
+			echo '<a class = "log" href="userdetails.php">Developer</a>';
+			echo '<a class = "log" href="admin.php">Admin</a>';
+		}
+		else if($_SESSION["status"]=="admin")
+		{
+			echo '<a class = "log" href="userdetails.php">Admin</a>';
+			echo '<a class = "log" href="admin.php">Admin</a>';
+		}
+		else if($_SESSION["status"]=="vip")
+		{
+			echo '<a class = "log" href="userdetails.php">VIP</a>';
+		}
+		else
+		{
+			echo '<a class = "log" href="userdetails.php">Member</a>';
+		}
+	}
+	
+	
+?>
+
+<title>Forum</title>
+<head>
+	<link rel="stylesheet" type="text/css" href="Style.css" />
+	<center>
+		<br>
+			<a href="default.php"><img src="banner.gif" alt="Hammer Fist Games"/></a>
+		<br>
+		<div class = "nav">
+			<a href="">News</a>
+			<a href="">Games</a>
+			<a href="">About</a>
+			<a href="">Contact Us</a>
+			<a href="default.php">Forum</a>
+		</div>
+	</center>
+</head>
+
+<center>
